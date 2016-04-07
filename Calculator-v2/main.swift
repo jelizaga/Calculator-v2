@@ -67,6 +67,22 @@ func mod(val1 : Int, val2 : Int) -> Int {
 // ARRAY OPERATIONS //
 //////////////////////
 
+// Receives an array of Ints; returns its size.
+func countArray(storage : [Int]) -> Int {
+    return storage.count
+}
+
+// Receives an array of Ints; returns its average.
+func averageArray(storage : [Int]) -> Double {
+    let count = Double(storage.count)
+    var total = 0.0
+    for num in storage {
+        total += Double(num)
+    }
+    let result = total / count
+    return result
+}
+
 // Receives an array of Ints; returns the result of adding every single one.
 func addiArray(storage : [Int]) -> Int {
     var result:Int = 0
@@ -77,8 +93,12 @@ func addiArray(storage : [Int]) -> Int {
 }
 
 // Receives an array of Ints; returns the result of multiplying every single one.
-func multArray() {
-    
+func multArray(storage : [Int]) -> Int {
+    var result:Int = 0
+    for num in storage {
+        result *= num
+    }
+    return result
 }
 
 ///////////////////////
@@ -114,6 +134,7 @@ while calculatorOn {
     // Declaring a boolean for a declared operand.
     var opDeclared = false
     
+    print("")
     print("Calculate:")
     
     while !complete {
@@ -139,9 +160,30 @@ while calculatorOn {
         } else if (response == "fact") {
             
         } else if (response == "add all") {
-            
+            var result = addiArray(storage)
+            print(result)
+            complete = true
         } else if (response == "multiply all") {
-            
+            var result = multArray(storage)
+            print(result)
+            complete = true
+        } else if (response == "count") {
+            var result = countArray(storage)
+            print(result)
+            complete = true
+        } else if (response == "average") {
+            var result = averageArray(storage)
+            print(result)
+            complete = true
+        } else if (operand != nil) {
+            storage.append(operand!)
+            if (opDeclared) {
+                var result = 0
+                if (op == "+") {
+                    result = addi(storage.first, val2: storage.last!)
+                }
+                print(result)
+            }
         }
         
     }
