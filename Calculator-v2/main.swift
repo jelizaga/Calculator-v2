@@ -24,8 +24,9 @@ func help() {
     print("clear - Clears the calculator of data.")
     print("quit - Quits the calculator.")
     print("help - Prints this menu again.")
-    print("print array - Prints the calculation array.")
-    print("print points - Prints the points currently stored.")
+    print("print array - Prints the data array.")
+    print("print points - Prints the points currently")
+    print("stored.")
     print("")
     print("VALID OPERATORS:")
     print("+ - * / %")
@@ -34,16 +35,23 @@ func help() {
     print("count - Counts the number of inputs received.")
     print("average - Averages all inputs received.")
     print("fact - Calculates the factorial of one input.")
-    print("add all - Calculates the sum of all received numbers.")
-    print("multiply all - Calculates the result of multiplying all received numbers.")
+    print("add all - Calculates the sum of all received")
+    print("numbers.")
+    print("multiply all - Calculates the result of")
+    print("multiplying all received numbers.")
     print("")
     print("POINT OPERATIONS:")
-    print("create tuple - Creates a new tuple point with the last two values received.")
-    print("create dictionary - Creates a new dictionary point with the last two values received.")
+    print("create tuple - Creates a new tuple point with")
+    print("the last two values received.")
+    print("create dictionary - Creates a new dictionary")
+    print("point with the last two values received.")
     print("+ tuples - Adds the last two tuples you made.")
-    print("- tuples - Subtracts the last two tuples you made.")
-    print("+ dictionaries - Adds the last two dictionaries you made.")
-    print("- dictionaries - Subtracts the last two dictionaries you made.")
+    print("- tuples - Subtracts the last two tuples you")
+    print("made.")
+    print("+ dictionaries - Adds the last two")
+    print("dictionaries you made.")
+    print("- dictionaries - Subtracts the last two")
+    print("dictionaries you made.")
     print("")
     print("=============================================")
     print("")
@@ -200,16 +208,24 @@ func subtPointsT(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (x: Int,
 }
 
 // DICTIONARIES: Returns a point representing the added values of the two received points.
-func addiPointsD(point1: [Int: Int], point2: [Int: Int]) -> [Int: Int] {
-    var x = point1
-    var result = point1
+func addiPointsD(point1: [String: Int], point2: [String: Int]) -> [String: Int]  {
+    
+    let result = [
+        "x": point1["x"]! + point2["x"]!,
+        "y": point1["y"]! + point2["y"]!,
+    ]
     return result
 }
 
 // DICTIONARIES: Returns a point representing the subtracted values of the two received points.
-func subtPointsD(point1: [Int: Int], point2: [Int: Int]) -> [Int: Int] {
-    var result = point1
+func subtPointsD(point1: [String: Int], point2: [String: Int]) -> [String: Int] {
+    
+    let result = [
+        "x": point1["x"]! - point2["x"]!,
+        "y": point1["y"]! - point2["y"]!,
+    ]
     return result
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -254,7 +270,7 @@ while calculatorOn {
         "y": 0
     ]
     
-    print("Calculate:")
+    print("Data clear. Calculate:")
     
     while !complete {
         
@@ -345,6 +361,20 @@ while calculatorOn {
             complete = true
             print("")
             
+        } else if (response == "+ dictionaries") {
+            
+            var result = addiPointsD(dpoint1, point2: dpoint2)
+            print(result)
+            complete = true
+            print("")
+            
+        } else if (response == "- dictionaries") {
+            
+            var result = subtPointsD(dpoint1, point2: dpoint2)
+            print(result)
+            complete = true
+            print("")
+            
         } else if (response == "create tuple") {
             
             tpoint1.x = tpoint2.x
@@ -362,14 +392,15 @@ while calculatorOn {
             dpoint2["x"] = secondToLast
             dpoint2["y"] = storage.last!
             print("Dictionary created.")
-            print("Dictionary 1 \(dpoint1)")
-            print("Dictionary 2 \(dpoint2)")
+            print("Dictionary 1: \(dpoint1)")
+            print("Dictionary 2: \(dpoint2)")
             
         } else if (operand != nil) {
             
             if (storage.last != nil) {
                 secondToLast = storage.last!
             }
+            
             storage.append(operand!)
      
             if (opDeclared) {
