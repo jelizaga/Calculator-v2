@@ -36,13 +36,13 @@ func help() {
     print("add all - Calculates the sum of all received numbers.")
     print("multiply all - Calculates the result of multiplying all received numbers.")
     print("")
-    print("POINT OPERATIONS")
+    print("POINT OPERATIONS:")
     print("create tuple - Creates a new tuple point with the last two values received.")
     print("create dictionary - Creates a new dictionary point with the last two values received.")
     print("+ tuples - Adds the last two tuples you made.")
     print("- tuples - Subtracts the last two tuples you made.")
     print("+ dictionaries - Adds the last two dictionaries you made.")
-    print("- dictionaries - Substracts the last two dictionaries you made.")
+    print("- dictionaries - Subtracts the last two dictionaries you made.")
     print("")
     print("=============================================")
     print("")
@@ -148,7 +148,7 @@ func addiArray(storage: [Int]) -> Int {
 // Receives an array of Ints; returns the result of multiplying every single one.
 func multArray(storage: [Int]) -> Int {
     
-    var result: Int = 0
+    var result: Int = 1
     for num in storage {
         result = result * num
     }
