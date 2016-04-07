@@ -34,6 +34,9 @@ func help() {
     print("add all - Calculates the sum of all received numbers.")
     print("multiply all - Calculates the result of multiplying all received numbers.")
     print("")
+    print("POINT OPERATIONS")
+    print("create point - Creates a new point with the last two values received.")
+    print("print points - Prints the points currently stored.")
     print("=============================================")
     print("")
     
@@ -127,7 +130,7 @@ func averageArray(storage: [Int]) -> Double {
 // Receives an array of Ints; returns the result of adding every single one.
 func addiArray(storage: [Int]) -> Int {
     
-    var result:Int = 0
+    var result: Int = 0
     for num in storage {
         result += num
     }
@@ -138,7 +141,7 @@ func addiArray(storage: [Int]) -> Int {
 // Receives an array of Ints; returns the result of multiplying every single one.
 func multArray(storage: [Int]) -> Int {
     
-    var result:Int = 0
+    var result: Int = 0
     for num in storage {
         result *= num
     }
@@ -155,6 +158,40 @@ func performArrayOperation(operation: ([Int]) -> Int, storage: [Int]) -> Int {
     
     return operation(storage)
     
+}
+
+//////////////////////
+// POINT OPERATIONS //
+//////////////////////
+
+// Creates a point with the last two received numbers.
+func createPoint(val1: Int, val2: Int) {
+    
+    print("Point created: (\(val1), \(val2))")
+    
+}
+
+// TUPLES: Returns a point representing the added values of the two received points.
+func addiPointsT(point1: (Int, Int), point2: (Int, Int)) {
+    
+}
+
+// TUPLES: Returns a point representing the subtracted values of the two received points.
+func subtPointsT(point1: (Int, Int), point2: (Int, Int)) {
+    
+}
+
+// DICTIONARIES: Returns a point representing the added values of the two received points.
+func addiPointsD(point1: [Int: Int], point2: [Int: Int]) -> [Int: Int] {
+    var x = point1
+    var result = point1
+    return result
+}
+
+// DICTIONARIES: Returns a point representing the subtracted values of the two received points.
+func subtPointsD(point1: [Int: Int], point2: [Int: Int]) -> [Int: Int] {
+    var result = point1
+    return result
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,6 +221,14 @@ while calculatorOn {
     var complete = false
     // Declaring a boolean for a declared operand.
     var opDeclared = false
+    // Declaring the variable declared last.
+    var secondToLast = 0;
+    // Declaring two empty tuple points.
+    var tpoint1: (x : Int, y : Int) = (0, 0)
+    var tpoint2: (x : Int, y : Int) = (0, 0)
+    // Declaring two empty dictionary points.
+    var dpoint1: [Int: Int] = [0: 0]
+    var dpoint2: [Int: Int] = [0: 0]
     
     print("Calculate:")
     
@@ -211,14 +256,16 @@ while calculatorOn {
             
         } else if (response == "count") {
             
-            var result = performArrayOperation(countArray, storage: [Int])
-            print(result)
             complete = true
             print("")
             
         } else if (response == "average") {
             
-            var result = performArrayOperation(averageArray, storage)
+            // Could not use the generic array function, as averages need doubles, not ints.
+            var result = averageArray(storage)
+            print(result)
+            complete = true
+            print("")
             
         } else if (response == "fact") {
             
@@ -246,21 +293,23 @@ while calculatorOn {
                 var result = 0
                 
                 if (op == "+") {
-                    result = performOperation(addi, val1: storage.first!, val2: storage.last!)
+                    result = performOperation(addi, val1: secondToLast, val2: storage.last!)
                 } else if (op == "-") {
-                    result = performOperation(subt, val1: storage.first!, val2: storage.last!)
+                    result = performOperation(subt, val1: secondToLast, val2: storage.last!)
                 } else if (op == "*") {
-                    result = performOperation(mult, val1: storage.first!, val2: storage.last!)
+                    result = performOperation(mult, val1: secondToLast, val2: storage.last!)
                 } else if (op == "/") {
-                    result = performOperation(divi, val1: storage.first!, val2: storage.last!)
+                    result = performOperation(divi, val1: secondToLast, val2: storage.last!)
                 } else {
-                    result = performOperation(mod, val1: storage.first!, val2: storage.last!)
+                    result = performOperation(mod, val1: secondToLast, val2: storage.last!)
                 }
                 print(result)
                 complete = true;
                 print("")
                 
             }
+            
+            secondToLast = operand!
             
         } else {
             
