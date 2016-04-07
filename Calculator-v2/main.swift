@@ -18,7 +18,7 @@ import Foundation
 func help() {
     
     print("")
-    print("========================================================================================")
+    print("=============================================")
     print("")
     print("COMMANDS:")
     print("quit - Quits the calculator.")
@@ -44,7 +44,7 @@ func help() {
     print("+ dictionaries - Adds the last two dictionaries you made.")
     print("- dictionaries - Subtracts the last two dictionaries you made.")
     print("")
-    print("=========================================================================================")
+    print("=============================================")
     print("")
     
 }
@@ -350,7 +350,13 @@ while calculatorOn {
             
         } else if (response == "create dictionary") {
             
-            
+            dpoint1["x"] = dpoint2["x"]
+            dpoint1["y"] = dpoint2["y"]
+            dpoint2["x"] = secondToLast
+            dpoint2["y"] = storage.last!
+            print("Dictionary created.")
+            print("Dictionary 1 \(dpoint1)")
+            print("Dictionary 2 \(dpoint2)")
             
         } else if (operand != nil) {
             
