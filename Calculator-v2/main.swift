@@ -95,7 +95,9 @@ func fact(val1: Int) -> Int {
 
 // Generic "math operation" function that accepts two Ints and passes them to an operation.
 func performOperation(operation: (Int, Int) -> Int, val1: Int, val2: Int) -> Int {
+    
     return operation(val1, val2)
+    
 }
 
 //////////////////////
@@ -233,7 +235,10 @@ while calculatorOn {
             
         } else if (response == "multiply all") {
             
-            var result = multArray(storage)        } else if (operand != nil) {
+            var result = multArray(storage)
+            
+        } else if (operand != nil) {
+            
             storage.append(operand!)
      
             if (opDeclared) {
@@ -258,7 +263,9 @@ while calculatorOn {
             }
             
         } else {
+            
             print("\(response) isn't an integer or an operator.")
+            
         }
         
     }
