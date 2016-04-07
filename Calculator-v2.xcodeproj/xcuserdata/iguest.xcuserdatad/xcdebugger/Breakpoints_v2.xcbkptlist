@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calculator-v2/main.swift"
-            timestampString = "481756574.466903"
+            timestampString = "481757114.852716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149">
+            startingLineNumber = "158"
+            endingLineNumber = "158">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calculator-v2/main.swift"
-            timestampString = "481756574.466903"
+            timestampString = "481757114.852716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151">
+            startingLineNumber = "160"
+            endingLineNumber = "160">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -38,27 +38,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calculator-v2/main.swift"
-            timestampString = "481756574.466903"
+            timestampString = "481757114.852716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calculator-v2/main.swift"
-            timestampString = "481756334.828127"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "averageArray(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calculator-v2/main.swift"
+            timestampString = "481757812.316711"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

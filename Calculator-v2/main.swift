@@ -45,27 +45,48 @@ func help() {
 
 // Performs addition, returns result.
 func addi(val1: Int, val2: Int) -> Int {
+    
     return val1 + val2
+    
 }
 
 // Performs subtraction, returns result.
 func subt(val1: Int, val2: Int) -> Int {
+    
     return val1 - val2
+    
 }
 
 // Performs multiplication, returns result.
 func mult(val1: Int, val2: Int) -> Int {
+    
     return val1 * val2
+    
 }
 
 // Performs division, returns result.
 func divi(val1: Int, val2: Int) -> Int {
+    
     return val1 / val2
+    
 }
 
 // Performs mod, returns result.
 func mod(val1: Int, val2: Int) -> Int {
+    
     return val1 % val2
+    
+}
+
+// Performs the factorial of the received Int.
+func fact(val1: Int) -> Int {
+    
+    var result:Int = 0;
+    for (var i = 0; i <= val1; i++) {
+        result += i
+    }
+    return result
+    
 }
 
 ///////////////////////
@@ -83,11 +104,14 @@ func performOperation(operation: (Int, Int) -> Int, val1: Int, val2: Int) -> Int
 
 // Receives an array of Ints; returns its size.
 func countArray(storage: [Int]) -> Int {
+    
     return storage.count
+    
 }
 
 // Receives an array of Ints; returns its average.
 func averageArray(storage: [Int]) -> Double {
+    
     let count = Double(storage.count)
     var total = 0.0
     for num in storage {
@@ -95,24 +119,29 @@ func averageArray(storage: [Int]) -> Double {
     }
     let result = total / count
     return result
+    
 }
 
 // Receives an array of Ints; returns the result of adding every single one.
 func addiArray(storage: [Int]) -> Int {
+    
     var result:Int = 0
     for num in storage {
         result += num
     }
     return result
+    
 }
 
 // Receives an array of Ints; returns the result of multiplying every single one.
 func multArray(storage: [Int]) -> Int {
+    
     var result:Int = 0
     for num in storage {
         result *= num
     }
     return result
+    
 }
 
 /////////////////////////////
@@ -121,7 +150,9 @@ func multArray(storage: [Int]) -> Int {
 
 // Generic "math operation" function that accepts two Ints and passes them to an operation.
 func performArrayOperation(operation: ([Int]) -> Int, storage: [Int]) -> Int {
+    
     return operation(storage)
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -162,41 +193,53 @@ while calculatorOn {
         var operand = Int.init(response!)
         
         if (response == "quit") {
+            
             calculatorOn = false
             print("")
             break
+            
         } else if (response == "help") {
+            
             help()
+            
         } else if (response == "+" || response == "-" || response == "*" || response == "/" || response == "%") {
+            
             op = response!
             opDeclared = true
+            
         } else if (response == "count") {
             
+            var result = performArrayOperation(countArray, storage: [Int])
+            print(result)
+            complete = true
+            print("")
+            
         } else if (response == "average") {
+            
+            var result = performArrayOperation(averageArray, storage)
             
         } else if (response == "fact") {
             
+            var result = fact(storage.last!)
+            print(result)
+            complete = true
+            print("")
+            
         } else if (response == "add all") {
+            
             var result = addiArray(storage)
             print(result)
             complete = true
+            
         } else if (response == "multiply all") {
-            var result = multArray(storage)
-            print(result)
-            complete = true
-        } else if (response == "count") {
-            var result = countArray(storage)
-            print(result)
-            complete = true
-        } else if (response == "average") {
-            var result = averageArray(storage)
-            print(result)
-            complete = true
-        } else if (operand != nil) {
+            
+            var result = multArray(storage)        } else if (operand != nil) {
             storage.append(operand!)
      
             if (opDeclared) {
+                
                 var result = 0
+                
                 if (op == "+") {
                     result = performOperation(addi, val1: storage.first!, val2: storage.last!)
                 } else if (op == "-") {
@@ -211,8 +254,11 @@ while calculatorOn {
                 print(result)
                 complete = true;
                 print("")
+                
             }
             
+        } else {
+            print("\(response) isn't an integer or an operator.")
         }
         
     }
