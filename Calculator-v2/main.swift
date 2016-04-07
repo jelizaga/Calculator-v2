@@ -179,12 +179,22 @@ func createPoint(val1: Int, val2: Int) {
 }
 
 // TUPLES: Returns a point representing the added values of the two received points.
-func addiPointsT(point1: (Int, Int), point2: (Int, Int)) {
+func addiPointsT(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (x: Int, y: Int) {
+    
+    var result: (x: Int, y: Int) = (0, 0)
+    result.x = point1.x + point2.x
+    result.y = point1.y + point2.y
+    return result
     
 }
 
 // TUPLES: Returns a point representing the subtracted values of the two received points.
-func subtPointsT(point1: (Int, Int), point2: (Int, Int)) {
+func subtPointsT(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (x: Int, y: Int) {
+    
+    var result: (x: Int, y: Int) = (0, 0)
+    result.x = point1.x - point2.x
+    result.y = point1.y - point2.y
+    return result
     
 }
 
@@ -231,8 +241,8 @@ while calculatorOn {
     // Declaring the variable declared last.
     var secondToLast = 0;
     // Declaring two empty tuple points.
-    var tpoint1: (x : Int, y : Int) = (0, 0)
-    var tpoint2: (x : Int, y : Int) = (0, 0)
+    var tpoint1: (x: Int, y: Int) = (0, 0)
+    var tpoint2: (x: Int, y: Int) = (0, 0)
     // Declaring two empty dictionary points.
     var dpoint1: [Int: Int] = [0: 0]
     var dpoint2: [Int: Int] = [0: 0]
@@ -307,6 +317,18 @@ while calculatorOn {
             print(result)
             complete = true
             print("")
+            
+        } else if (response == "create tuple") {
+            
+            tpoint1.x = tpoint2.x
+            tpoint1.y = tpoint2.y
+            tpoint2.x = secondToLast
+            tpoint2.y = storage.last!
+            print("Tuple created.")
+            print("Tuple 1: \(tpoint1)")
+            print("Tuple 2: \(tpoint2)")
+            
+        } else if (response == "create dictionary") {
             
         } else if (operand != nil) {
             
