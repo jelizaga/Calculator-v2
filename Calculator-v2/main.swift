@@ -318,6 +318,20 @@ while calculatorOn {
             complete = true
             print("")
             
+        } else if (response == "+ tuples") {
+            
+            var result = addiPointsT(tpoint1, point2: tpoint2)
+            print(result)
+            complete = true
+            print("")
+            
+        } else if (response == "- tuples") {
+            
+            var result = subtPointsT(tpoint1, point2: tpoint2)
+            print(result)
+            complete = true
+            print("")
+            
         } else if (response == "create tuple") {
             
             tpoint1.x = tpoint2.x
