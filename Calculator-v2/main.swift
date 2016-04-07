@@ -18,7 +18,7 @@ import Foundation
 func help() {
     
     print("")
-    print("=============================================")
+    print("========================================================================================")
     print("")
     print("COMMANDS:")
     print("quit - Quits the calculator.")
@@ -44,7 +44,7 @@ func help() {
     print("+ dictionaries - Adds the last two dictionaries you made.")
     print("- dictionaries - Subtracts the last two dictionaries you made.")
     print("")
-    print("=============================================")
+    print("=========================================================================================")
     print("")
     
 }
@@ -244,8 +244,14 @@ while calculatorOn {
     var tpoint1: (x: Int, y: Int) = (0, 0)
     var tpoint2: (x: Int, y: Int) = (0, 0)
     // Declaring two empty dictionary points.
-    var dpoint1: [Int: Int] = [0: 0]
-    var dpoint2: [Int: Int] = [0: 0]
+    var dpoint1 = [
+        "x": 0,
+        "y": 0
+    ]
+    var dpoint2 = [
+        "x": 0,
+        "y": 0
+    ]
     
     print("Calculate:")
     
@@ -343,6 +349,8 @@ while calculatorOn {
             print("Tuple 2: \(tpoint2)")
             
         } else if (response == "create dictionary") {
+            
+            
             
         } else if (operand != nil) {
             
