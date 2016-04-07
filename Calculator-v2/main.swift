@@ -36,27 +36,27 @@ func help() {
 // BASIC OPERATIONS //
 //////////////////////
 
-// Performs addition.
+// Performs addition, returns result.
 func addi(val1 : Int, val2 : Int) -> Int {
     return val1 + val2
 }
 
-// Performs subtraction.
+// Performs subtraction, returns result.
 func subt(val1 : Int, val2 : Int) -> Int {
     return val1 - val2
 }
 
-// Performs multiplication.
+// Performs multiplication, returns result.
 func mult(val1 : Int, val2 : Int) -> Int {
     return val1 * val2
 }
 
-// Performs division.
+// Performs division, returns result.
 func divi(val1: Int, val2 : Int) -> Int {
     return val1 / val2
 }
 
-// Performs mod.
+// Performs mod, returns result.
 func mod(val1 : Int, val2 : Int) -> Int {
     return val1 % val2
 }
@@ -71,7 +71,7 @@ func addiArray() {
 }
 
 // Receives an array of Ints; returns the result of multiplying every single one.
-func multiArray() {
+func multArray() {
     
 }
 
@@ -95,12 +95,17 @@ print("Welcome to Calculator-v2.")
 ////////////////
 
 var calculatorOn = true
-var complete = false
 
 while calculatorOn {
     
-    var storage = [Int]()
+    // Declaring empty calculator array.
+    var storage = [UInt]()
+    // Declaring empty operator.
     var op = ""
+    // Declaring boolean for a completed calculation.
+    var complete = false
+    // Declaring a boolean for a declared operand.
+    var opDeclared = false
     
     while !complete {
         
