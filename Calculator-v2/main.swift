@@ -39,28 +39,37 @@ func help() {
 //////////////////////
 
 // Performs addition, returns result.
-func addi(val1 : Int, val2 : Int) -> Int {
+func addi(val1: Int, val2: Int) -> Int {
     return val1 + val2
 }
 
 // Performs subtraction, returns result.
-func subt(val1 : Int, val2 : Int) -> Int {
+func subt(val1: Int, val2: Int) -> Int {
     return val1 - val2
 }
 
 // Performs multiplication, returns result.
-func mult(val1 : Int, val2 : Int) -> Int {
+func mult(val1: Int, val2: Int) -> Int {
     return val1 * val2
 }
 
 // Performs division, returns result.
-func divi(val1: Int, val2 : Int) -> Int {
+func divi(val1: Int, val2: Int) -> Int {
     return val1 / val2
 }
 
 // Performs mod, returns result.
-func mod(val1 : Int, val2 : Int) -> Int {
+func mod(val1: Int, val2: Int) -> Int {
     return val1 % val2
+}
+
+///////////////////////
+// GENERIC OPERATION //
+///////////////////////
+
+// Generic "math operation" function that accepts two Ints and passes them to an operation.
+func performOperation(operation: (Int, Int) -> Int, val1: Int, val2: Int) -> Int {
+    return operation(val1, val2)
 }
 
 //////////////////////
@@ -68,12 +77,12 @@ func mod(val1 : Int, val2 : Int) -> Int {
 //////////////////////
 
 // Receives an array of Ints; returns its size.
-func countArray(storage : [Int]) -> Int {
+func countArray(storage: [Int]) -> Int {
     return storage.count
 }
 
 // Receives an array of Ints; returns its average.
-func averageArray(storage : [Int]) -> Double {
+func averageArray(storage: [Int]) -> Double {
     let count = Double(storage.count)
     var total = 0.0
     for num in storage {
@@ -84,7 +93,7 @@ func averageArray(storage : [Int]) -> Double {
 }
 
 // Receives an array of Ints; returns the result of adding every single one.
-func addiArray(storage : [Int]) -> Int {
+func addiArray(storage: [Int]) -> Int {
     var result:Int = 0
     for num in storage {
         result += num
@@ -93,7 +102,7 @@ func addiArray(storage : [Int]) -> Int {
 }
 
 // Receives an array of Ints; returns the result of multiplying every single one.
-func multArray(storage : [Int]) -> Int {
+func multArray(storage: [Int]) -> Int {
     var result:Int = 0
     for num in storage {
         result *= num
@@ -101,13 +110,13 @@ func multArray(storage : [Int]) -> Int {
     return result
 }
 
-///////////////////////
-// PERFORM OPERATION //
-///////////////////////
+/////////////////////////////
+// GENERIC ARRAY OPERATION //
+/////////////////////////////
 
 // Generic "math operation" function that accepts two Ints and passes them to an operation.
-func perfOp(val1 : Int, val2 : Int) {
-    
+func performArrayOperation(operation: ([Int]) -> Int, storage: [Int]) -> Int {
+    return operation(storage)
 }
 
 //////////////////
@@ -177,12 +186,23 @@ while calculatorOn {
             complete = true
         } else if (operand != nil) {
             storage.append(operand!)
+     
             if (opDeclared) {
                 var result = 0
                 if (op == "+") {
-                    result = addi(storage.first, val2: storage.last!)
+                    result = performOperation(addi, val1: storage.first!, val2: storage.last!)
+                } else if (op == "-") {
+                    result = performOperation(subt, val1: storage.first!, val2: storage.last!)
+                } else if (op == "*") {
+                    result = performOperation(mult, val1: storage.first!, val2: storage.last!)
+                } else if (op == "/") {
+                    result = performOperation(divi, val1: storage.first!, val2: storage.last!)
+                } else {
+                    result = performOperation(mod, val1: storage.first!, val2: storage.last!)
                 }
                 print(result)
+                complete = true;
+                print("")
             }
         }
         
