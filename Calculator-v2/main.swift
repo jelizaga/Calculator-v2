@@ -37,28 +37,28 @@ func help() {
 //////////////////////
 
 // Performs addition.
-func addi() {
-    
+func addi(val1 : Int, val2 : Int) -> Int {
+    return val1 + val2
 }
 
 // Performs subtraction.
-func subt() {
-    
+func subt(val1 : Int, val2 : Int) -> Int {
+    return val1 - val2
 }
 
 // Performs multiplication.
-func mult() {
-    
+func mult(val1 : Int, val2 : Int) -> Int {
+    return val1 * val2
 }
 
 // Performs division.
-func divi() {
-    
+func divi(val1: Int, val2 : Int) -> Int {
+    return val1 / val2
 }
 
 // Performs mod.
-func mod() {
-    
+func mod(val1 : Int, val2 : Int) -> Int {
+    return val1 % val2
 }
 
 //////////////////////
@@ -94,12 +94,17 @@ print("Welcome to Calculator-v2.")
 // CALCULATOR //
 ////////////////
 
-var calculatorOn = true;
+var calculatorOn = true
+var complete = false
 
-while (calculatorOn) {
+while calculatorOn {
     
     var storage = [Int]()
     var op = ""
+    
+    while !complete {
+        
+    }
     
     
 }
