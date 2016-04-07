@@ -2,7 +2,8 @@
 // INFO 498 D
 // Spring 2016
 
-// A second iteration of the Swift CLI calculator I wrote earlier--except this one's written a little bit better.
+// A second iteration of the Swift CLI calculator I wrote earlier--except this one's written a
+// little bit better.
 
 import Foundation
 
