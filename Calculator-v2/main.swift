@@ -21,6 +21,7 @@ func help() {
     print("=============================================")
     print("")
     print("COMMANDS:")
+    print("clear - Clears the calculator of data.")
     print("quit - Quits the calculator.")
     print("help - Prints this menu again.")
     print("print array - Prints the calculation array.")
@@ -262,7 +263,13 @@ while calculatorOn {
         // Response converted into an Int.
         var operand = Int.init(response!)
         
-        if (response == "quit") {
+        if (response == "clear") {
+            
+            complete = true
+            print("")
+            break
+            
+        } else if (response == "quit") {
             
             calculatorOn = false
             print("")
