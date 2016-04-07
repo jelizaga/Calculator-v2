@@ -346,7 +346,9 @@ while calculatorOn {
             
         } else if (operand != nil) {
             
-            secondToLast = storage.last!
+            if (storage.last != nil) {
+                secondToLast = storage.last!
+            }
             storage.append(operand!)
      
             if (opDeclared) {
