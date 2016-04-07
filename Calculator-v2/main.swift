@@ -20,9 +20,11 @@ func help() {
     print("")
     print("=============================================")
     print("")
-    print("USEFUL COMMANDS:")
+    print("COMMANDS:")
     print("quit - Quits the calculator.")
     print("help - Prints this menu again.")
+    print("print array - Prints the calculation array.")
+    print("print points - Prints the points currently stored.")
     print("")
     print("VALID OPERATORS:")
     print("+ - * / %")
@@ -35,8 +37,13 @@ func help() {
     print("multiply all - Calculates the result of multiplying all received numbers.")
     print("")
     print("POINT OPERATIONS")
-    print("create point - Creates a new point with the last two values received.")
-    print("print points - Prints the points currently stored.")
+    print("create tuple - Creates a new tuple point with the last two values received.")
+    print("create dictionary - Creates a new dictionary point with the last two values received.")
+    print("+ tuples - Adds the last two tuples you made.")
+    print("- tuples - Subtracts the last two tuples you made.")
+    print("+ dictionaries - Adds the last two dictionaries you made.")
+    print("- dictionaries - Substracts the last two dictionaries you made.")
+    print("")
     print("=============================================")
     print("")
     
@@ -143,7 +150,7 @@ func multArray(storage: [Int]) -> Int {
     
     var result: Int = 0
     for num in storage {
-        result *= num
+        result = result * num
     }
     return result
     
@@ -249,6 +256,17 @@ while calculatorOn {
             
             help()
             
+        } else if (response == "print array") {
+          
+            print(storage)
+            
+        } else if (response == "print points") {
+          
+            print("Tuple 1: \(tpoint1)")
+            print("Tuple 2: \(tpoint2)")
+            print("Dictionary 1: \(dpoint1)")
+            print("Dictionary 2: \(dpoint2)")
+            
         } else if (response == "+" || response == "-" || response == "*" || response == "/" || response == "%") {
             
             op = response!
@@ -256,6 +274,8 @@ while calculatorOn {
             
         } else if (response == "count") {
             
+            var result = countArray(storage)
+            print(result)
             complete = true
             print("")
             
@@ -279,10 +299,14 @@ while calculatorOn {
             var result = addiArray(storage)
             print(result)
             complete = true
+            print("")
             
         } else if (response == "multiply all") {
             
             var result = multArray(storage)
+            print(result)
+            complete = true
+            print("")
             
         } else if (operand != nil) {
             
@@ -313,7 +337,7 @@ while calculatorOn {
             
         } else {
             
-            print("\(response) isn't an integer or an operator.")
+            print("\(response) isn't an integer, operator, or a command.")
             
         }
         
