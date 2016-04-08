@@ -180,13 +180,6 @@ func performArrayOperation(operation: ([Int]) -> Int, storage: [Int]) -> Int {
 // POINT OPERATIONS //
 //////////////////////
 
-// Creates a point with the last two received numbers.
-func createPoint(val1: Int, val2: Int) {
-    
-    print("Point created: (\(val1), \(val2))")
-    
-}
-
 // TUPLES: Returns a point representing the added values of the two received points.
 func addiPointsT(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (x: Int, y: Int) {
     
