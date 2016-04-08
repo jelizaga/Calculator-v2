@@ -380,7 +380,11 @@ while calculatorOn {
             tpoint1.x = tpoint2.x
             tpoint1.y = tpoint2.y
             tpoint2.x = secondToLast
-            tpoint2.y = storage.last!
+            if (storage.last == nil) {
+                tpoint2.y = 0
+            } else {
+                tpoint2.y = storage.last!
+            }
             print("Tuple created.")
             print("Tuple 1: \(tpoint1)")
             print("Tuple 2: \(tpoint2)")
@@ -390,7 +394,11 @@ while calculatorOn {
             dpoint1["x"] = dpoint2["x"]
             dpoint1["y"] = dpoint2["y"]
             dpoint2["x"] = secondToLast
-            dpoint2["y"] = storage.last!
+            if (storage.last == nil) {
+                dpoint2["y"] = 0
+            } else {
+                dpoint2["y"] = storage.last!
+            }
             print("Dictionary created.")
             print("Dictionary 1: \(dpoint1)")
             print("Dictionary 2: \(dpoint2)")
