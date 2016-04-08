@@ -229,7 +229,7 @@ func subtPointsD(point1: [String: Int], point2: [String: Int]) -> [String: Int] 
 // INTRODUCTION //
 //////////////////
 
-print("Welcome to Calculator-v2.")
+print("Welcome to Calculator-v2, a better calculator than Calculator v1.")
 help()
 
 ////////////////
